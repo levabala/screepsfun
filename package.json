@@ -7,6 +7,7 @@
     "start-server": "live-server",
     "webpack": "webpack",
     "webpack-watch": "webpack --watch",
+    "start-all": "concurrently \"npm:start-server\" \"npm:webpack-watch\"",
     "update-my-config": "npm install --dev-save eslint-config-levabala@latest"
   },
   "repository": {
@@ -31,21 +32,32 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
     "autoprefixer": "^9.2.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-levabala": "^1.0.13",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-babel": "^5.2.1",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-no-not-accumulator-reassign": "^0.1.0",
     "extract-loader": "^3.0.0",
     "file-loader": "^2.0.0",
     "flow-bin": "^0.83.0",
     "live-server": "^1.2.0",
     "node-sass": "^4.9.3",
     "postcss-loader": "^3.0.0",
-    "redom": "^3.14.2",
     "sass-loader": "^7.1.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
     "@material/ripple": "^0.40.1",
-    "material-components-web": "^0.40.1"
+    "material-components-web": "^0.40.1",
+    "redom": "^3.14.2",
+    "showdown": "^1.8.6",
+    "showdown-highlight": "^2.1.2"
   }
 }

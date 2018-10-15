@@ -1,8 +1,6 @@
 // @flow
 import { mount, el } from 'redom';
-import Card from './components/Card';
+import MDBlock from './components/MDBlock';
 
-const card = new Card('width: 300px');
-const content = el('span', 'some text?\nyeah');
-mount(card, content);
+const card = new MDBlock('width: 300px');
 mount(document.body, card);

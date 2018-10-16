@@ -1,29 +1,33 @@
+import marked from 'marked';
+import Prism from 'prismjs';
 import { el, mount } from 'redom';
-import showdown from 'showdown';
-import showdownHighlight from 'showdown-highlight';
 import Card from './Card';
 
 class MDBlock extends Card {
-  constructor({ width }) {
+  constructor({ text, width }) {
     super({ width });
-    const converter = new showdown.Converter({
-      extensions: [showdownHighlight],
+    marked.setOptions({
+      renderer: new marked.Renderer(),
+      highlight: code => {
+        const element = Prism.highlight(
+          code,
+          Prism.languages.javascript,
+          'javascript',
+        );
+        return element;
+      },
+      pedantic: false,
+      gfm: true,
+      tables: true,
+      breaks: false,
+      sanitize: false,
+      smartLists: true,
+      smartypants: false,
+      xhtml: false,
     });
-    const html = converter.makeHtml(`
-      ## Highlighting Code with Showdown
-      
-      Below we have a piece of JavaScript code:
-      
-      \`\`\`js
-      function sayHello (msg, who) {
-          return \`\${who} says: msg\`;
-      }
-      sayHello("Hello World", "Johnny");
-      \`\`\`
-    `);
-    console.log(html);
-    const element = el('article', { class: 'markdown-body', innerHTML: html });
-
+    const element = el('div', {
+      innerHTML: marked(text),
+    });
     mount(this.el, element);
   }
 }

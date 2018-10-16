@@ -1,5 +1,12 @@
 @import '@material/card/mdc-card';
+@import '@material/elevation/mdc-elevation';
+@import '/node_modules/prism-themes/themes/prism-atom-dark.css';
+@import './scss/blockquote.scss';
 
 .mdc-card {
-  padding: 1rem;
+  padding: 2rem;
+}
+
+.language-javascript {
+  font-size: 14px;
 }
